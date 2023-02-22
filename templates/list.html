@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="alert alert-dark" role="alert">
-  List
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">List</h1>
+    <p class="lead">Todolistを作成して生産的な毎日を過ごしましょう!</p>
+  </div>
 </div>
 {% endblock header%}
 
 
 {% block content %}
-{% for item in object_list %}
-<div class="alert alert-success" role="alert">
-  {{ item.title }}
+<div class="container">
+  {% for item in object_list %}
+  <div class="alert alert-{{ item.priority }}" role="alert">
+    <p>{{ item.title }}</p>
+    <a class="btn btn-info" href="#" role="button">編集画面へ</a>
+    <a class="btn btn-success" href="#" role="button">削除画面へ</a>
+    <a class="btn btn-primary" href="#" role="button">詳細画面へ</a>
+  </div>
+  {% endfor %}
 </div>
-<div class="alert alert-success" role="alert">
-  {{ item.memo }}
-</div>
-{% endfor %}
 {% endblock content %}
