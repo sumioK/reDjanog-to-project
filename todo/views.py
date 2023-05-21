@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from .models import Todomodel
+# from django.views.decorators.csrf import csrf_exempt
 
 class TodoList(ListView):
     template_name = 'list.html'
@@ -10,7 +11,6 @@ class TodoList(ListView):
 class TodoDetail(DetailView):
     template_name = 'detail.html'
     model = Todomodel
-
 class TodoCreate(CreateView):
   template_name = 'create.html'
   model = Todomodel
